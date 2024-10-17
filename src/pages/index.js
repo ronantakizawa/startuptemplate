@@ -1,115 +1,132 @@
-import Image from "next/image";
-import localFont from "next/font/local";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Head from 'next/head';
+import { Fragment } from 'react';
+import { motion } from 'framer-motion';
+import { LightningBoltIcon, GlobeIcon, ShieldCheckIcon } from '@heroicons/react/outline';
 
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <Fragment>
+      <Head>
+        <title>Tech Startup - Innovate the Future</title>
+        <meta name="description" content="Leading the future with innovative tech solutions." />
+      </Head>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <header className="bg-white shadow-sm fixed w-full z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="text-2xl font-bold text-indigo-600">TechStartup</div>
+          <nav className="space-x-8">
+            <a href="#features" className="text-gray-700 hover:text-indigo-600">
+              Features
+            </a>
+            <a href="#about" className="text-gray-700 hover:text-indigo-600">
+              About
+            </a>
+            <a href="#contact" className="text-gray-700 hover:text-indigo-600">
+              Contact
+            </a>
+          </nav>
         </div>
+      </header>
+
+      <main className="pt-24">
+        {/* Hero Section */}
+        <section className="bg-gray-50">
+          <div className="max-w-7xl mx-auto px-6 py-20 text-center">
+            <motion.h1
+              className="text-5xl font-extrabold text-gray-900"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              Innovate the Future with TechStartup
+            </motion.h1>
+            <p className="mt-6 text-xl text-gray-600">
+              Empowering businesses with cutting-edge technology solutions.
+            </p>
+            <div className="mt-8">
+              <a
+                href="https://calendly.com/ronantech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-indigo-700 transition duration-300"
+              >
+                Book a demo
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="py-16">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-gray-900">Our Features</h2>
+              <p className="mt-4 text-gray-600">
+                Discover what makes us the best choice for your business.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-8 grid-cols-1 md:grid-cols-3">
+              {/* Feature 1 */}
+              <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <LightningBoltIcon className="h-12 w-12 text-indigo-600 mx-auto" />
+                <h3 className="mt-4 text-xl font-semibold text-gray-900 text-center">Fast Performance</h3>
+                <p className="mt-2 text-gray-600 text-center">
+                  Experience lightning-fast speeds and top-notch performance.
+                </p>
+              </div>
+              {/* Feature 2 */}
+              <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <GlobeIcon className="h-12 w-12 text-indigo-600 mx-auto" />
+                <h3 className="mt-4 text-xl font-semibold text-gray-900 text-center">Global Reach</h3>
+                <p className="mt-2 text-gray-600 text-center">
+                  Expand your business globally with our scalable solutions.
+                </p>
+              </div>
+              {/* Feature 3 */}
+              <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+                <ShieldCheckIcon className="h-12 w-12 text-indigo-600 mx-auto" />
+                <h3 className="mt-4 text-xl font-semibold text-gray-900 text-center">Secure Solutions</h3>
+                <p className="mt-2 text-gray-600 text-center">
+                  Protect your data with our state-of-the-art security measures.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="bg-gray-50 py-16">
+          <div className="max-w-7xl mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold text-gray-900">About Us</h2>
+            <p className="mt-4 text-gray-600">
+              At TechStartup, we are dedicated to revolutionizing the tech industry with innovative solutions that drive success.
+            </p>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="py-16">
+          <div className="max-w-7xl mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold text-gray-900">Get in Touch</h2>
+            <p className="mt-4 text-gray-600">
+              Have questions? Reach out to us, and we'll be happy to assist.
+            </p>
+            <div className="mt-8">
+              <a
+                href="mailto:contact@techstartup.com"
+                className="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-indigo-700 transition duration-300"
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="bg-gray-800 py-6">
+        <div className="max-w-7xl mx-auto px-6 text-center text-gray-400">
+          &copy; {new Date().getFullYear()} TechStartup. All rights reserved.
+        </div>
       </footer>
-    </div>
+    </Fragment>
   );
 }
